@@ -299,6 +299,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -3.69
       objectReference: {fileID: 0}
+    - target: {fileID: 2993972078710830416, guid: 42037551e037f054bbe2f538de4030a4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993972078710830416, guid: 42037551e037f054bbe2f538de4030a4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993972078710830416, guid: 42037551e037f054bbe2f538de4030a4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6979525650649898654, guid: 42037551e037f054bbe2f538de4030a4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -636,6 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869914061}
   - component: {fileID: 1869914062}
+  - component: {fileID: 1869914063}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Controller
@@ -670,3 +683,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296e6f1db717f684ab5397d9787c2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1869914063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869914060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9303263f109cad45827d0bfe4132d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _faction: []

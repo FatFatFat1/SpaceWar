@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static FactionData;
 
 public class Planet : MonoBehaviour
 {
     private int _ships = 0; // Сколько кораблей на планете
-    private Faction _faction; // Кому принадлежит планета
     private const int _shipForDay = 5; // Сколько кораблей строиться за "день"
     private TMPro.TextMeshProUGUI _text;
     private GameObject _gameController;
 
+    [SerializeField] private Faction _myFaction;
     [SerializeField] private GameObject objToText;
     [SerializeField] private GameObject _selectedPointer;
 
@@ -20,6 +21,7 @@ public class Planet : MonoBehaviour
         _text = objToText.GetComponent<TMPro.TextMeshProUGUI>();
         _gameController = GameObject.FindGameObjectWithTag("Controller");
         StartCoroutine(ShipBuilding());
+        GetStartFaction();
     }
 
     private void OnDestroy()
@@ -42,6 +44,23 @@ public class Planet : MonoBehaviour
     private void OnMouseDown()
     {
         SetSelected();
+    }
+
+    void GetStartFaction() 
+    {
+        GetFaction("Neutral");// Изначально все планеты никому не принадлежат
+    }
+
+    void GetFaction(string name)
+    {
+        for (int i = 1; i < _gameController.GetComponent<FactionData>()._faction.Length; i++)
+        {
+            if (name == _gameController.GetComponent<FactionData>()._faction[i].name)
+            {
+                _myFaction = _gameController.GetComponent<FactionData>()._faction[i];
+                gameObject.GetComponent<SpriteRenderer>().color = _gameController.GetComponent<FactionData>()._faction[i].color;
+            }
+        }
     }
 }
 
