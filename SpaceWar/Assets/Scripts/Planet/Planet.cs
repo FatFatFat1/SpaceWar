@@ -24,6 +24,18 @@ public class Planet : MonoBehaviour
         GetStartFaction();
     }
 
+    private void Update()
+    {
+        if (IsSelected)
+        {
+            GetComponent<LineRenderer>().enabled = true;
+            _gameController.GetComponent<SelectController>().LineCreate();
+        }
+        else
+        {
+            GetComponent<LineRenderer>().enabled = false;
+        }
+    }
     private void OnDestroy()
     {
         StopCoroutine(ShipBuilding()); // ѕланеты не должны пропадать во врем€ игры , но а вдруг?
@@ -46,10 +58,11 @@ public class Planet : MonoBehaviour
         SetSelected();
     }
 
-    void GetStartFaction() 
+    void GetStartFaction()
     {
         GetFaction("Neutral");// »значально все планеты никому не принадлежат
     }
+
 
     void GetFaction(string name)
     {

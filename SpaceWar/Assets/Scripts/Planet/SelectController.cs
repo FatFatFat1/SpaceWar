@@ -26,4 +26,11 @@ public class SelectController : MonoBehaviour
             _oldSelected = _currentSelected;
         }
     }
+
+    public void LineCreate()
+    {
+        LineRenderer lineRenderer = _currentSelected.GetComponent<LineRenderer>();
+        lineRenderer.SetPosition(0, _currentSelected.transform.position);
+        lineRenderer.SetPosition(1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    }
 }
