@@ -9,8 +9,10 @@ public class FactionData : MonoBehaviour
     [System.Serializable]
     public class Faction
     {
-        public string name;
-        public Color color;
+        [SerializeField] private string name;
+        [SerializeField] private Color color;
+        public string Name => name;
+        public Color Color => color;
     }
 }
 

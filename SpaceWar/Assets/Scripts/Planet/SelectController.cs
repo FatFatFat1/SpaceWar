@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SelectController : MonoBehaviour
 {
-    private GameObject _oldSelected;
+    public GameObject _oldSelected;
     private GameObject _currentSelected;
+    public GameObject currentSelected => _currentSelected;
+    public GameObject oldSelecred => _oldSelected;
 
     public void SwitchSelected(GameObject currentSelected)
     {
@@ -32,5 +34,15 @@ public class SelectController : MonoBehaviour
         LineRenderer lineRenderer = _currentSelected.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, _currentSelected.transform.position);
         lineRenderer.SetPosition(1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    }
+
+    public void EndTurnReset()
+    {
+        currentSelected.GetComponent<Planet>().IsSelected = false;
+        currentSelected.GetComponent<Planet>().SelectedPointer.SetActive(false);
+        _oldSelected.GetComponent<Planet>().IsSelected = false;
+        _oldSelected.GetComponent<Planet>().SelectedPointer.SetActive(false);
+        _oldSelected = null;
+        _currentSelected = null;
     }
 }

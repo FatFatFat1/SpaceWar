@@ -177,7 +177,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5.561467
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.92, z: -2}
+  m_LocalPosition: {x: 0, y: -0.92, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -499,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004967184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36, y: -1.28, z: 0}
+  m_LocalPosition: {x: 0.36, y: -1.28, z: 1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -683,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296e6f1db717f684ab5397d9787c2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _oldSelected: {fileID: 0}
 --- !u!114 &1869914063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,4 +696,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9303263f109cad45827d0bfe4132d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _faction: []
+  _faction:
+  - name: Player
+    color: {r: 0, g: 0.1847806, b: 1, a: 1}
+  - name: Neutral
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - name: Enemy
+    color: {r: 1, g: 0, b: 0, a: 1}
