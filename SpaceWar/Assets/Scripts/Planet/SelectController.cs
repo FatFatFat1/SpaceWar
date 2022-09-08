@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SelectController : MonoBehaviour
 {
-    public GameObject _oldSelected;
+    [SerializeField] private string _owner;
+
+    private GameObject _oldSelected;
     private GameObject _currentSelected;
     public GameObject currentSelected => _currentSelected;
+    public string Owner => _owner; // По сути - игрок
+
     public GameObject oldSelecred => _oldSelected;
 
     public void SwitchSelected(GameObject currentSelected)

@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 5460638240535239497}
   - component: {fileID: 8899940516553843551}
   m_Layer: 3
-  m_Name: planet
+  m_Name: PlayerPlanet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,13 +377,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxShips: 100
   _myFaction:
-    name: 
-    color: {r: 0, g: 0, b: 0, a: 0}
+    name: Player
+    color: {r: 0, g: 0.065570354, b: 1, a: 1}
   objToText: {fileID: 6618877211200712917}
   _selectedPointer: {fileID: 8933681647130300909}
   _shipPrefab: {fileID: 4140747503303774636, guid: d75921f0cf85d9e46b495dad0e234216, type: 3}
   IsSelected: 0
-  Ships: 0
+  Ships: 50
   Text: {fileID: 0}
 --- !u!222 &2340185015794991495
 CanvasRenderer:
