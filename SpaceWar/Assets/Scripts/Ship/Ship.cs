@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,17 +39,17 @@ public class Ship : MonoBehaviour
         {
             Destroy(gameObject);
             Planet planet = target.GetComponent<Planet>();
-            if (planet.MyFaction.Name == _myPlanet.GetComponent<Planet>().MyFaction.Name) // Можно пополнять "запасы" своих же планет
+            if (planet.MyFaction.Name == _myPlanet.GetComponent<Planet>().MyFaction.Name) // РњРѕР¶РЅРѕ РїРѕРїРѕР»РЅСЏС‚СЊ "Р·Р°РїР°СЃС‹" СЃРІРѕРёС… Р¶Рµ РїР»Р°РЅРµС‚
             {
                 planet.Ships++;
             }
-            else //Если планета не твоей фракции , то корабли умирают для захвата
+            else //Р•СЃР»Рё РїР»Р°РЅРµС‚Р° РЅРµ С‚РІРѕРµР№ С„СЂР°РєС†РёРё , С‚Рѕ РєРѕСЂР°Р±Р»Рё СѓРјРёСЂР°СЋС‚ РґР»СЏ Р·Р°С…РІР°С‚Р°
             {
                 if (planet.Ships > 0)
                 {
                     planet.Ships--;
                 }
-                if (planet.Ships == 0) //Корабль влетает в "незанятую" планету
+                if (planet.Ships == 0) //РљРѕСЂР°Р±Р»СЊ РІР»РµС‚Р°РµС‚ РІ "РЅРµР·Р°РЅСЏС‚СѓСЋ" РїР»Р°РЅРµС‚Сѓ
                 {
 
                     planet.Capture(_myPlanet.GetComponent<Planet>().MyFaction.Name);

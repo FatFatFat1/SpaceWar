@@ -1,11 +1,11 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static FactionData;
 
 public class Planet : MonoBehaviour
 {
-    private const int _shipForDay = 5; // Сколько кораблей строиться за "день"
+    private const int _shipForDay = 5; // РЎРєРѕР»СЊРєРѕ РєРѕСЂР°Р±Р»РµР№ СЃС‚СЂРѕРёС‚СЊСЃСЏ Р·Р° "РґРµРЅСЊ"
 
     [SerializeField] private GameObject _gameController;
     [SerializeField] private int _maxShips;
@@ -19,7 +19,7 @@ public class Planet : MonoBehaviour
     private float _radius;
     public float Radius => _radius;
     public bool IsSelected = false;
-    public int Ships; // Сколько кораблей на планете
+    public int Ships; // РЎРєРѕР»СЊРєРѕ РєРѕСЂР°Р±Р»РµР№ РЅР° РїР»Р°РЅРµС‚Рµ
     public TMPro.TextMeshProUGUI Text;
     public bool NotForCheck = false;
 
@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ShipBuilding()); //Только занятые планеты увеличивают популяцию
+            StartCoroutine(ShipBuilding()); //РўРѕР»СЊРєРѕ Р·Р°РЅСЏС‚С‹Рµ РїР»Р°РЅРµС‚С‹ СѓРІРµР»РёС‡РёРІР°СЋС‚ РїРѕРїСѓР»СЏС†РёСЋ
         }
         GetFactionColor();
     }
@@ -59,9 +59,9 @@ public class Planet : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopCoroutine(ShipBuilding()); // Планеты не должны пропадать во время игры , но а вдруг?
+        StopCoroutine(ShipBuilding()); // РџР»Р°РЅРµС‚С‹ РЅРµ РґРѕР»Р¶РЅС‹ РїСЂРѕРїР°РґР°С‚СЊ РІРѕ РІСЂРµРјСЏ РёРіСЂС‹ , РЅРѕ Р° РІРґСЂСѓРі?
     }
-    IEnumerator ShipBuilding() //Прирост кораблей
+    IEnumerator ShipBuilding() //РџСЂРёСЂРѕСЃС‚ РєРѕСЂР°Р±Р»РµР№
     {
         while (true)
         {
@@ -91,7 +91,7 @@ public class Planet : MonoBehaviour
         GameObject planetTo = _gameController.GetComponent<SelectController>().currentSelected;
         if (planetFrom != null)
         {
-            if (planetFrom.GetComponent<Planet>()._myFaction.Name == _gameController.GetComponent<SelectController>().Owner) // Посылать можно только со своих планет
+            if (planetFrom.GetComponent<Planet>()._myFaction.Name == _gameController.GetComponent<SelectController>().Owner) // РџРѕСЃС‹Р»Р°С‚СЊ РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ СЃРѕ СЃРІРѕРёС… РїР»Р°РЅРµС‚
             {
                 Departure(planetFrom, planetTo);
                 planetFrom.GetComponent<Planet>().Ships = Mathf.FloorToInt(planetFrom.GetComponent<Planet>().Ships / 2);
@@ -107,7 +107,7 @@ public class Planet : MonoBehaviour
 
     void Departure(GameObject fromPlanet, GameObject victim)
     {
-        int ship_to_fly = Mathf.FloorToInt(fromPlanet.GetComponent<Planet>().Ships / 2); //Половина кораблей вылетает
+        int ship_to_fly = Mathf.FloorToInt(fromPlanet.GetComponent<Planet>().Ships / 2); //РџРѕР»РѕРІРёРЅР° РєРѕСЂР°Р±Р»РµР№ РІС‹Р»РµС‚Р°РµС‚
         Vector3 pos = new Vector3(fromPlanet.transform.position.x, fromPlanet.transform.position.y + 0.5f, fromPlanet.transform.position.z);
         for (int i = 0; i < ship_to_fly; i++)
         {
@@ -125,7 +125,7 @@ public class Planet : MonoBehaviour
 
     void GetStartFaction()
     {
-        GetFaction("Neutral");// Изначально все планеты никому не принадлежат
+        GetFaction("Neutral");// РР·РЅР°С‡Р°Р»СЊРЅРѕ РІСЃРµ РїР»Р°РЅРµС‚С‹ РЅРёРєРѕРјСѓ РЅРµ РїСЂРёРЅР°РґР»РµР¶Р°С‚
         GetFactionColor();
     }
 
@@ -158,7 +158,7 @@ public class Planet : MonoBehaviour
     {
         if (MyFaction.Name == "Neutral")
         {
-            StartCoroutine(ShipBuilding());//Захват нейтральной планеты запускает рост популяции
+            StartCoroutine(ShipBuilding());//Р—Р°С…РІР°С‚ РЅРµР№С‚СЂР°Р»СЊРЅРѕР№ РїР»Р°РЅРµС‚С‹ Р·Р°РїСѓСЃРєР°РµС‚ СЂРѕСЃС‚ РїРѕРїСѓР»СЏС†РёРё
         }
         GetFaction(newOwner);
         GetFactionColor();

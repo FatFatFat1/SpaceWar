@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,13 +9,13 @@ public class SelectController : MonoBehaviour
     private GameObject _oldSelected;
     private GameObject _currentSelected;
     public GameObject currentSelected => _currentSelected;
-    public string Owner => _owner; // По сути - игрок
+    public string Owner => _owner; // РџРѕ СЃСѓС‚Рё - РёРіСЂРѕРє
 
     public GameObject oldSelecred => _oldSelected;
 
     public void SwitchSelected(GameObject currentSelected)
     {
-        if (_currentSelected != currentSelected) //нажал по уже выделеному
+        if (_currentSelected != currentSelected) //РЅР°Р¶Р°Р» РїРѕ СѓР¶Рµ РІС‹РґРµР»РµРЅРѕРјСѓ
         {
             currentSelected.GetComponent<Planet>().IsSelected = !currentSelected.GetComponent<Planet>().IsSelected;
             currentSelected.GetComponent<Planet>().SelectedPointer.SetActive(currentSelected.GetComponent<Planet>().IsSelected);

@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +38,7 @@ public class Generation : MonoBehaviour
         GameObject[] allPlanet = GameObject.FindGameObjectsWithTag("Planet");
         obj.GetComponent<CircleCollider2D>().enabled = false;
         Collider2D[] hits = Physics2D.OverlapCircleAll(obj.transform.position, sumRadius + obj.GetComponent<Planet>().Radius);
-        if (CheckRadius(hits)) //Рядом ничего нет
+        if (CheckRadius(hits)) //Р СЏРґРѕРј РЅРёС‡РµРіРѕ РЅРµС‚
         {
             Vector3 pos = obj.transform.position + 2 * new Vector3(Random.Range(-sumRadius, sumRadius) <= 0 ? -sumRadius : sumRadius, Random.Range(-sumRadius, sumRadius) <= 0 ? -sumRadius : sumRadius, 0);
             for (int x = 0; x < allPlanet.Length; x++)
@@ -62,7 +62,7 @@ public class Generation : MonoBehaviour
         {
             foreach (Collider2D c in hits)
             {
-                sumRadius += c.gameObject.GetComponent<Planet>().Radius; //Сумма радиусов соседних планет
+                sumRadius += c.gameObject.GetComponent<Planet>().Radius; //РЎСѓРјРјР° СЂР°РґРёСѓСЃРѕРІ СЃРѕСЃРµРґРЅРёС… РїР»Р°РЅРµС‚
                 _sumRadius = sumRadius;
                 c.gameObject.GetComponent<Planet>().NotForCheck = true;
                 obj.GetComponent<CircleCollider2D>().enabled = true;
