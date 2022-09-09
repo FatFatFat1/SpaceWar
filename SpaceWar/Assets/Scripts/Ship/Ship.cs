@@ -8,6 +8,7 @@ public class Ship : MonoBehaviour
     [SerializeField] private Vector3 pointOfDepartures;
 
     private GameObject _myPlanet;
+    private Rigidbody2D rg;
     private float startTime;
     private float speed = 0.5f;
 
@@ -19,16 +20,18 @@ public class Ship : MonoBehaviour
     }
     private void Start()
     {
+        transform.position = pointOfDepartures;
         startTime = Time.time;
         Color myColor = _myPlanet.GetComponent<Planet>().MyFaction.Color;
         gameObject.GetComponent<SpriteRenderer>().color = myColor;
-
+        rg = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         float distCovered = Time.time - startTime;
-        transform.position = Vector3.Lerp(pointOfDepartures, target.transform.position, distCovered * speed);
+        rg.AddForce(target.transform.position - transform.position);
+        rg.position = Vector3.Lerp(pointOfDepartures, target.transform.position, distCovered * speed);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -16,9 +16,17 @@ public class Planet : MonoBehaviour
 
     public GameObject SelectedPointer => _selectedPointer;
     public Faction MyFaction => _myFaction;
+    private float _radius;
+    public float Radius => _radius;
     public bool IsSelected = false;
     public int Ships; // Сколько кораблей на планете
     public TMPro.TextMeshProUGUI Text;
+    public bool NotForCheck = false;
+
+    private void Awake()
+    {
+        _radius = GetComponent<CircleCollider2D>().radius;
+    }
     private void Start()
     {
         Text = objToText.GetComponent<TMPro.TextMeshProUGUI>();
@@ -148,4 +156,3 @@ public class Planet : MonoBehaviour
         GetFactionColor();
     }
 }
-

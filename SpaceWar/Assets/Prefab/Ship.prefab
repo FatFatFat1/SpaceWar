@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  homePlanet: {fileID: 0}
+  pointOfDepartures: {x: 0, y: 0, z: 0}
 --- !u!61 &1754316721428757876
 BoxCollider2D:
   m_ObjectHideFlags: 0
