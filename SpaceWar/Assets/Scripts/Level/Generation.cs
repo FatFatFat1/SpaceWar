@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Generation : MonoBehaviour
 {
-
     [SerializeField] private Vector3 _borderCoordinate;
     [SerializeField] private GameObject _planetPrefab;
     [SerializeField] private int _maxPlanetCount;
@@ -14,7 +13,7 @@ public class Generation : MonoBehaviour
     private bool isFirst = true;
     private void Start()
     {
-        for (int i = 0; i <= _maxPlanetCount + 1; i++)
+        for (int i = 0; i <= _maxPlanetCount; i++)
         {
             if (_planet != null)
             {
@@ -27,6 +26,10 @@ public class Generation : MonoBehaviour
                 isFirst = false;
             }
         }
+        GameObject[] allPlanet = GameObject.FindGameObjectsWithTag("Planet");
+        int rand = Mathf.FloorToInt(Random.Range(0, allPlanet.Length));
+        allPlanet[rand].GetComponent<Planet>().GetStartPlayerFaction();
+
     }
 
     GameObject TryCreatePlanet(float sumRadius, GameObject obj)

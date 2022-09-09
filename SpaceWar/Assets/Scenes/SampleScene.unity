@@ -438,4 +438,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _borderCoordinate: {x: 2, y: 2, z: 0}
   _planetPrefab: {fileID: 7632593759623563558, guid: 42037551e037f054bbe2f538de4030a4, type: 3}
-  _maxPlanetCount: 12
+  _maxPlanetCount: 5

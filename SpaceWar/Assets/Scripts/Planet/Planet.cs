@@ -6,8 +6,8 @@ using static FactionData;
 public class Planet : MonoBehaviour
 {
     private const int _shipForDay = 5; // Сколько кораблей строиться за "день"
-    private GameObject _gameController;
 
+    [SerializeField] private GameObject _gameController;
     [SerializeField] private int _maxShips;
     [SerializeField] private Faction _myFaction;
     [SerializeField] private GameObject objToText;
@@ -26,11 +26,11 @@ public class Planet : MonoBehaviour
     private void Awake()
     {
         _radius = GetComponent<CircleCollider2D>().radius;
+        _gameController = GameObject.FindGameObjectWithTag("Controller");
+        Text = objToText.GetComponent<TMPro.TextMeshProUGUI>();
     }
     private void Start()
     {
-        Text = objToText.GetComponent<TMPro.TextMeshProUGUI>();
-        _gameController = GameObject.FindGameObjectWithTag("Controller");
         if (_myFaction.Name == "")
         {
             GetStartFaction();
@@ -129,6 +129,14 @@ public class Planet : MonoBehaviour
         GetFactionColor();
     }
 
+    public void GetStartPlayerFaction()
+    {
+        GetFaction("Player");
+        GetFactionColor();
+        Ships = 50;
+        Text.text = Ships.ToString();
+
+    }
 
     void GetFaction(string name)
     {
