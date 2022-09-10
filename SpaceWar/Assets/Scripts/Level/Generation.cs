@@ -10,7 +10,6 @@ public class Generation : MonoBehaviour
 
     private float _sumRadius;
     private GameObject _planet = null;
-    private bool isFirst = true;
     private void Start()
     {
         for (int i = 0; i <= _maxPlanetCount; i++)
@@ -19,11 +18,10 @@ public class Generation : MonoBehaviour
             {
                 _planet = TryCreatePlanet(_sumRadius, _planet);
             }
-            if (isFirst)
+            else
             {
                 _planet = CreatePlanet(new Vector3(Random.Range(-_borderCoordinate.x, _borderCoordinate.x), Random.Range(-_borderCoordinate.y, _borderCoordinate.y), 0));
                 _sumRadius = _planet.GetComponent<Planet>().Radius;
-                isFirst = false;
             }
         }
         GameObject[] allPlanet = GameObject.FindGameObjectsWithTag("Planet");
